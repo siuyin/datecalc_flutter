@@ -131,6 +131,9 @@ class _DateEntryFormState extends State<DateEntryForm> {
                   ),
                   onFieldSubmitted: (_) => compute(),
                   controller: _offsetController,
+                  keyboardType: const TextInputType.numberWithOptions(
+                    signed: true,
+                  ),
                   inputFormatters: [
                     TextInputFormatter.withFunction((before, after) {
                       return RegExp(r'^[+-]?\d*$').hasMatch(after.text)
