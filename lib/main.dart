@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
 final dateFormat = DateFormat('dd MMM yyyy');
@@ -110,6 +111,16 @@ class _DateEntryFormState extends State<DateEntryForm> {
                   ),
                   onFieldSubmitted: (_) => compute(),
                   controller: _startDateController,
+                  onTap: () async {
+                    final dt = await showDatePicker(
+                      context: context,
+                      firstDate: DateTime(1900),
+                      lastDate: DateTime(2050),
+                    );
+                    if (dt == null) return;
+                    _startDateController.text = dateFormat.format(dt);
+                    setState(() {});
+                  },
                 ),
               ),
               SizedBox(
@@ -120,6 +131,13 @@ class _DateEntryFormState extends State<DateEntryForm> {
                   ),
                   onFieldSubmitted: (_) => compute(),
                   controller: _offsetController,
+                  inputFormatters: [
+                    TextInputFormatter.withFunction((before, after) {
+                      return RegExp(r'^[+-]?\d*$').hasMatch(after.text)
+                          ? after
+                          : before;
+                    })
+                  ],
                 ),
               ),
             ],
