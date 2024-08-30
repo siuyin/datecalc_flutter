@@ -125,7 +125,7 @@ class _DateEntryFormState extends State<DateEntryForm> {
             ],
           ),
           Text(
-            '${compute()}',
+            compute(),
             style: Theme.of(context).textTheme.displaySmall,
           ),
         ],
