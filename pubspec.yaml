@@ -38,6 +38,13 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: any
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  image_path: "assets/icon/icon.png"
+  android: true
+  web:
+    generate: true
 
 dev_dependencies:
   flutter_test:
