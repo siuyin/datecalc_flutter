@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: const [
         Locale('en','SG'),
       ],
-      title: 'Flutter Demo',
+      title: 'DateCalc',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
