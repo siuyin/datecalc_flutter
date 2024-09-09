@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
       ],
       supportedLocales: const [
-        Locale('en','SG'),
+        Locale('en', 'SG'),
       ],
       title: 'DateCalc',
       theme: ThemeData(
@@ -98,7 +98,9 @@ class _DateEntryFormState extends State<DateEntryForm> {
     if (sd == null || off == null) {
       return '';
     }
-    setState(() {});
+    setState(() {
+      FocusScope.of(context).requestFocus(FocusNode());
+    });
     return dateFormat.format(sd.add(Duration(days: off)));
   }
 
